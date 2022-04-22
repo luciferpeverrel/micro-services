@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: carsModule
+          uri: http://localhost:9000/
+          predicates:
+            - Path=/cars/**
+        - id: mechanicModule
+          uri: http://localhost:9100/
+          predicates:
+            - Path=/mechanic/**
